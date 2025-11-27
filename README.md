@@ -1,0 +1,2 @@
+# GNA
+Global Narrative Atlas
