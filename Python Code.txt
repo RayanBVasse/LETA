@@ -1,0 +1,105 @@
+Python Code
+
+###########################
+# For sample of 40 authors with larger than 20 posts:
+
+cursor = connection.cursor()
+cursor.execute("""
+    SELECT id, COUNT(*) AS posts
+    FROM blogs_sample
+    GROUP BY id
+    HAVING COUNT(*) >= 20
+    ORDER BY posts DESC
+    LIMIT 40;
+""")
+authors = [row[0] for row in cursor.fetchall()]
+
+print("Authors selected:", authors)
+print("Total authors:", len(authors))
+
+
+# -----------------------------------------------------------
+# 2. Fetch all posts for these authors
+# -----------------------------------------------------------
+
+print("Fetching posts for these authors...")
+
+query = f"""
+    SELECT id, gender, age, topic, sign, date_raw, text
+    FROM blogs_sample
+    WHERE id IN ({",".join(["%s"] * len(authors))})
+    ORDER BY id, date_raw;
+"""
+
+cursor.execute(query, authors)
+rows = cursor.fetchall()
+
+print(f"Total posts extracted: {len(rows)}")
+
+
+# -----------------------------------------------------------
+# 3. Save to CSV
+# -----------------------------------------------------------
+
+output_file = "authors40_full_records.csv"
+print("Writing to:", output_file)
+
+with open(output_file, "w", newline="", encoding="utf8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["id", "gender", "age", "topic", "sign", "date_raw", "text"])
+    writer.writerows(rows)
+
+print("File written successfully.")
+
+cursor.close()
+connection.close()
+print("Done.")
+
+##################################################
+
+# To select random 1/3rd of the original data
+
+# Increase field size limit (set to max allowable)
+csv.field_size_limit(sys.maxsize)
+
+path = "blogtext.csv"
+
+df = pd.read_csv(path, nrows=10)
+print(df)
+
+# count total rows
+#total = 0
+#for chunk in pd.read_csv(path, chunksize=200_000, engine="python", encoding="latin1"):
+#    total += len(chunk)
+
+#print("Total rows:", total)
+
+# to copy 200,000 random rows and save in a new file
+out_path = "blogs_sample_200k.csv"
+
+target = 200_000
+chunksize = 100_000
+
+samples = []
+
+# Fraction of rows we want overall
+frac = target / 681_284   # total rows known
+
+for chunk in pd.read_csv(path, chunksize=chunksize, engine="c", encoding="latin1"):
+    # sample this chunk by fraction
+    samples.append(chunk.sample(frac=frac, random_state=42))
+
+# Combine everything
+df_sample = pd.concat(samples, ignore_index=True)
+
+# If slightly above target, trim down to exactly 200k
+if len(df_sample) > target:
+    df_sample = df_sample.sample(n=target, random_state=42)
+
+# Save to CSV
+df_sample.to_csv(out_path, index=False, encoding="utf-8")
+
+print("Saved file:", out_path)
+print("Final row count:", len(df_sample))
+
+##################################################
