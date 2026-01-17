@@ -1,4 +1,4 @@
-# Global Narrative Atlas — Demonstration Repository
+# Generative Narrative Atlas — Demonstration Repository
 
 
 This repository contains demonstration-level code, prompt structures, and synthetic dataset slices used in the Global Narrative Atlas (GNA) proof-of-concept paper. It supports reproducibility for Pillars 1–3.
