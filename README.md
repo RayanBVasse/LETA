@@ -1,26 +1,20 @@
-# Generative Narrative Atlas — Demonstration Repository
+# LETA: Longitudinal Emotion Trajectory Analysis
 
+Validation framework for LLM-based emotion extraction from text.
 
-This repository contains demonstration-level code, prompt structures, and synthetic dataset slices used in the Global Narrative Atlas (GNA) proof-of-concept paper. It supports reproducibility for Pillars 1–3.
+## Key Finding
+AI emotion extraction measures **expressed emotion** (what appears in text), 
+which is related to but distinct from **felt emotion** (what humans report).
+- Categorical overlap: 58% (4.7× chance)
+- Dimensional correlation: r = .18 (~3% shared variance)
 
-
-## Contents
-- data_samples/ — small CSV slices for structured and semi-structured analysis
-- prompts/ — the exact LLM prompt templates used for each pillar
-- logic_layer/ — simple preprocessing + prompt-assembly scripts
-- results/ — GPT-generated outputs for comparison with published papers
-- docs/ — methodology overview and licensing information
-
-
-## Purpose
-This repository provides transparency and reproducibility for the GNA framework while preserving proprietary elements of the system (e.g., internal logic engine, parameter weighting).
-
+## Validations
+1. **AI-Human Convergence**: RW3D dataset (n=1,152)
+2. **Methodological Validity**: SEANCE/transformer comparison (18,604 posts)
+3. **Naturalistic Application**: Longitudinal blog corpus (100 authors)
 
 ## Citation
-If you use this repository, please cite:
-*AUTHOR (2025). Global Narrative Atlas: A Proof-of-Concept for Longitudinal Narrative Analytics.*
-
+[BRM citation when published]
 
 ## License
-See LICENSE.# GNA
-Global Narrative Atlas
+MIT
