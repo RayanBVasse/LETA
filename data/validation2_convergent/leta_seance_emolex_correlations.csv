@@ -1,0 +1,9 @@
+emotion,pearson_r,p_value,n
+anger,0.871,0.00e+00,18604
+anticipation,0.875,0.00e+00,18604
+disgust,0.86,0.00e+00,18604
+fear,0.848,0.00e+00,18604
+joy,0.904,0.00e+00,18604
+sadness,0.849,0.00e+00,18604
+surprise,0.874,0.00e+00,18604
+trust,0.87,0.00e+00,18604

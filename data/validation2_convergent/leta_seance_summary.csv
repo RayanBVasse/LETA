@@ -1,0 +1,53 @@
+comparison,mean_r,interpretation
+LETA vs EmoLex (same lexicon),0.868875,Strong
+LETA vs GALC (different lexicon),0.10666666666666669,Weak
+LETA vs VADER (sentiment),0.286,Weak
+
+
+Upload this small file so I can identify which columns to extract
+PS C:\Users\user\Documents\_Book-Series\_GA pub and collab\Sc Pubs Manus\1. GNA-Publication - SocXarkiv\C-analysis downloads\LETA-GNA work\seance> python .\leta_seance_correlation.py
+Loading data...
+SEANCE: 18604 rows
+LETA: 18604 rows
+Matched: 18604 rows
+
+======================================================================
+PART 1: LETA vs SEANCE EmoLex (Same NRC Lexicon)
+======================================================================
+anger           r = 0.871  (p = 0.00e+00, n = 18604)
+anticipation    r = 0.875  (p = 0.00e+00, n = 18604)
+disgust         r = 0.860  (p = 0.00e+00, n = 18604)
+fear            r = 0.848  (p = 0.00e+00, n = 18604)
+joy             r = 0.904  (p = 0.00e+00, n = 18604)
+sadness         r = 0.849  (p = 0.00e+00, n = 18604)
+surprise        r = 0.874  (p = 0.00e+00, n = 18604)
+trust           r = 0.870  (p = 0.00e+00, n = 18604)
+
+Mean correlation (EmoLex): r = 0.869
+
+======================================================================
+PART 2: LETA vs SEANCE GALC (Different Lexicon - Geneva)
+======================================================================
+anger           r = 0.192  (p = 1.25e-154, n = 18604)
+disgust         r = 0.057  (p = 9.63e-15, n = 18604)
+fear            r = 0.167  (p = 3.08e-116, n = 18604)
+joy             r = 0.088  (p = 3.23e-33, n = 18604)
+sadness         r = 0.070  (p = 2.02e-21, n = 18604)
+surprise        r = 0.066  (p = 1.24e-19, n = 18604)
+
+Mean correlation (GALC): r = 0.107
+
+======================================================================
+PART 3: LETA Valence vs VADER Sentiment
+======================================================================
+LETA valence vs VADER compound: r = 0.286 (p = 0.00e+00, n = 18604)
+
+======================================================================
+SUMMARY
+======================================================================
+                      comparison   mean_r interpretation
+   LETA vs EmoLex (same lexicon) 0.868875         Strong
+LETA vs GALC (different lexicon) 0.106667           Weak
+       LETA vs VADER (sentiment) 0.286000           Weak
+
+======================================================================
