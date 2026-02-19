@@ -1,9 +1,5 @@
 # LETA: Longitudinal Emotion Trajectory Analysis
 
-Validation framework for LLM-based emotion extraction from text.
-
-# LETA: Longitudinal Emotion Trajectory Analysis
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Validation framework for LLM-based emotion extraction from longitudinal text.
