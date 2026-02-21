@@ -1,0 +1,7 @@
+leta,self_report,r_raw,r_partial,change,n
+anger,anger_wave1,0.209,0.212,0.002,1152
+disgust,disgust_wave1,0.185,0.186,0.001,1152
+fear,fear_wave1,0.17,0.171,0.001,1152
+fear,anxiety_wave1,0.175,0.176,0.001,1152
+sadness,sadness_wave1,0.161,0.165,0.004,1152
+joy,happiness_wave1,0.157,0.156,-0.0,1152

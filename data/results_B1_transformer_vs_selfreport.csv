@@ -1,0 +1,7 @@
+transformer,self_report,r,p,n
+anger,anger_wave1,0.268,2.06e-20,1152
+disgust,disgust_wave1,0.148,4.17e-07,1152
+fear,fear_wave1,0.243,7.00e-17,1152
+fear,anxiety_wave1,0.285,6.56e-23,1152
+sadness,sadness_wave1,0.103,4.76e-04,1152
+joy,happiness_wave1,0.223,1.77e-14,1152
